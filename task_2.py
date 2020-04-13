@@ -14,16 +14,13 @@ button.place(x=480,y=340)
 button2 = Button(window, text='Закрыть', width=15)
 button2.place(x=480,y=370)
 
-def close_window(event):
-    window.destroy()
-
 class myGame:
-    def count_bones(self, n):
-        
+    def close_window(self, event):
+        window.destroy()
         
     def draw_bones(self, event):
+        sum,one,two,three,four,five,six = 0,0,0,0,0,0,0
         i, counter = 0,20
-        
         while i < 6:
             random_bone = randint(1, 6)
             if random_bone == 1:
@@ -106,13 +103,9 @@ class myGame:
         label1 = Label(text="Result is " + str(sum))
         label1.place(x=480,y=300)
 
-
-
-p = myGame()
-
-
+my_object = myGame()
         
-button.bind('<Button-1>', p.draw_bones)
-button2.bind('<Button-1>', close_window)
+button.bind('<Button-1>', my_object.draw_bones)
+button2.bind('<Button-1>', my_object.close_window)
 
 window.mainloop()
